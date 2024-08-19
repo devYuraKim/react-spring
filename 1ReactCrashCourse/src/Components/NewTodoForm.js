@@ -4,7 +4,7 @@ function NewTodoForm({ addTodo, setShowForm }) {
   const assigned = useRef();
   const description = useRef();
 
-  function handleAdd(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     if (!assigned.current.value.trim() || !description.current.value.trim()) {
       alert("assigned and description cannot be empty");
@@ -51,7 +51,7 @@ function NewTodoForm({ addTodo, setShowForm }) {
         <button
           type="submit"
           className="btn btn-primary mt-3 me-2"
-          onClick={handleAdd}
+          onClick={handleSubmit}
         >
           Create
         </button>
