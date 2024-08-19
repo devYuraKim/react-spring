@@ -5,6 +5,12 @@ function NewTodoForm({ addTodo, setShowForm }) {
   const description = useRef();
 
   function handleAdd(event) {
+    event.preventDefault();
+    if (!assigned.current.value.trim() || !description.current.value.trim()) {
+      alert("assigned and description cannot be empty");
+      return;
+    }
+
     const newTodo = {
       assigned: assigned.current.value,
       description: description.current.value,
@@ -43,7 +49,7 @@ function NewTodoForm({ addTodo, setShowForm }) {
           ></textarea>
         </div>
         <button
-          type="button"
+          type="submit"
           className="btn btn-primary mt-3 me-2"
           onClick={handleAdd}
         >
