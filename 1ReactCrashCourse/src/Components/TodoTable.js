@@ -1,6 +1,6 @@
 import TodoRowItem from "./TodoRowItem";
 
-function TodoTable({ todos }) {
+function TodoTable({ todos, deleteTodo }) {
   return (
     <table className="table table-hover">
       <thead>
@@ -8,6 +8,7 @@ function TodoTable({ todos }) {
           <th scope="col">#</th>
           <th scope="col">Description</th>
           <th scope="col">Assigned</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@ function TodoTable({ todos }) {
             rowNumber={todo.rowNumber}
             rowDescription={todo.rowDescription}
             rowAssigned={todo.rowAssigned}
+            deleteTodo={deleteTodo}
           />
         ))}
       </tbody>

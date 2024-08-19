@@ -26,12 +26,16 @@ function App() {
     ]);
   }
 
+  function deleteTodo(rowNumber) {
+    setTodos((todos) => todos.filter((todo) => todo.rowNumber !== rowNumber));
+  }
+
   return (
     <div className="mt-5 container">
       <div className="card">
         <div className="card-header">Your Todos</div>
         <div className="card-body">
-          <TodoTable todos={todos}></TodoTable>
+          <TodoTable todos={todos} deleteTodo={deleteTodo}></TodoTable>
           {!showForm && (
             <button
               className="btn btn-primary mt-3"
